@@ -95,21 +95,6 @@ class QRScannerController: UIViewController {
         // TODO 3
         // hide torchButton if the device has no torch
         // display correct image for the torch state
-        guard let device = getCameraDevice() else {
-            torchButton?.isHidden = true
-            return
-        }
-        
-        if !device.hasTorch {
-            torchButton?.isHidden = true
-            return
-        }
-        
-        if isTorchOn() {
-           torchButton?.setImage(UIImage(named: "torchOn"), for: .normal)
-        } else {
-           torchButton?.setImage(UIImage(named: "torchOff"), for: .normal)
-        }
     }
     
     private func isTorchOn() -> Bool {
