@@ -42,7 +42,7 @@ class QRScannerController: UIViewController {
         // TODO 1
         // get a device that is suitable for video
         // try AVCaptureDevice. ...
-        return AVCaptureDevice.default(for: .video)
+        return nil
     }
     
     private func addCameraToCaptureInput() -> Bool {
