@@ -22,7 +22,7 @@ class QRScannerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initTorchButton()
+        updateTorchImage()
         
         let success = addCameraToCaptureInput()
         if (!success) {return}
@@ -39,6 +39,9 @@ class QRScannerController: UIViewController {
     }
     
     private func getCameraDevice() -> AVCaptureDevice? {
+        // TODO 1
+        // get a device that is suitable for video
+        // try AVCaptureDevice. ...
         return AVCaptureDevice.default(for: .video)
     }
     
@@ -88,22 +91,24 @@ class QRScannerController: UIViewController {
         }
     }
     
-    private func initTorchButton() {
+    private func updateTorchImage() {
+        // TODO 3
+        // hide torchButton if the device has no torch
+        // display correct image for the torch state
         guard let device = getCameraDevice() else {
             torchButton?.isHidden = true
             return
         }
-
+        
         if !device.hasTorch {
             torchButton?.isHidden = true
             return
         }
         
         if isTorchOn() {
-            torchButton?.setImage(UIImage(named: "torchOn"), for: .normal)
-        }
-        else {
-            torchButton?.setImage(UIImage(named: "torchOff"), for: .normal)
+           torchButton?.setImage(UIImage(named: "torchOn"), for: .normal)
+        } else {
+           torchButton?.setImage(UIImage(named: "torchOff"), for: .normal)
         }
     }
     
@@ -121,14 +126,15 @@ class QRScannerController: UIViewController {
         do {
             try device.lockForConfiguration()
             
-            // TODO toggle torch
+            // TODO 4
+            // toggle torch by switching the torchmode of the device
             if device.torchMode == .on {
                 device.torchMode = .off
-                torchButton?.setImage(UIImage(named: "torchOff"), for: .normal)
             } else {
                 device.torchMode = .on
-                torchButton?.setImage(UIImage(named: "torchOn"), for: .normal)
             }
+            
+            updateTorchImage()
             
             device.unlockForConfiguration()
         } catch {
@@ -137,6 +143,10 @@ class QRScannerController: UIViewController {
     }
 
     func showMemoryController() {
+        if isTorchOn() {
+            toggleTorch()
+        }
+        
         if presentedViewController != nil {
             return
         }
@@ -157,9 +167,12 @@ extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {
     }
     
     private func handleQrString (metadataObj: AVMetadataMachineReadableCodeObject) {
+        // TODO 5
+        // get the string from the metadataObj
+        // store the parsed qrCodeString in Userdefaults.standard with the key Constants.Link
+        // show the memoryController (method already provided, just call it)
         guard let qrCodeString = metadataObj.stringValue else { return }
         
-        // TODO: pass the string of the metadata object to the overview
         UserDefaults.standard.set(qrCodeString, forKey: Constants.LINK)
         messageLabel.text = qrCodeString
         showMemoryController()

@@ -30,7 +30,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="mpU-uX-zbm">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="backToScan" destination="1b2-LJ-tTf" id="wjB-bb-YQq"/>
+                                                <action selector="backToScan" destination="1b2-LJ-tTf" id="Lgg-M9-JwC"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

@@ -13,7 +13,9 @@ class Constants {
     
     static let LINK = "LINK"
     
-    // TODO add supportedCodeTypes
+    // TODO 2
+    // add supportedCodeTypes to the array
+    // AVMetadataObject.ObjectType. ...
     static let supportedCodeTypes = [AVMetadataObject.ObjectType.qr]
     
     static let allSupportedCodeTypes = [AVMetadataObject.ObjectType.upce,

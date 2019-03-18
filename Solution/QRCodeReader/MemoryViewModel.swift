@@ -22,6 +22,12 @@ class MemoryViewModel: NSObject {
     }
     
     func loadImageFromUrl() {
+        // TODO 6
+        // download the image given the imageUrl
+        // URLSession.shared.dataTask(...) may help
+        // parse the data to an UIImage object and safe it to self.image
+        // call the controller such that it will try to show the image
+        // + don't forget to tell the user that you are loading ;)
         image = nil
         guard let imageUrl = imageUrl else { return }
         
