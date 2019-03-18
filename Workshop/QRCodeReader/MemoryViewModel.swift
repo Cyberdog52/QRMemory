@@ -29,21 +29,6 @@ class MemoryViewModel: NSObject {
         // call the controller such that it will try to show the image
         // + don't forget to tell the user that you are loading ;)
         image = nil
-        guard let imageUrl = imageUrl else { return }
-        
-        controller?.startLoading()
-        
-        URLSession.shared.dataTask(with: imageUrl) { data, urlResponse, error in
-            guard let data = data, error == nil, urlResponse != nil else {
-                print("Error while fetching image from url")
-                self.controller?.tryToShowImage()
-                return
-            }
-            
-            self.image = UIImage(data:data)
-            
-            self.controller?.tryToShowImage()
-        }.resume()
     }
     
 }
