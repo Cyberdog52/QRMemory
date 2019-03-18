@@ -128,11 +128,6 @@ class QRScannerController: UIViewController {
             
             // TODO 4
             // toggle torch by switching the torchmode of the device
-            if device.torchMode == .on {
-                device.torchMode = .off
-            } else {
-                device.torchMode = .on
-            }
             
             updateTorchImage()
             
