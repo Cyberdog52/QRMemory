@@ -7,6 +7,6 @@ Try not to look at the Solution ;)
 
 In case you want to skip a Task, you can check out an older commit. I removed the Todos from 6 to 1.
 
-The code-base was the barcode tutorial https://www.appcoda.com/barcode-reader-swift/. I tried to skin the app down and minimize the code base and cleaned some code up.
+The code originated from the barcode tutorial https://www.appcoda.com/barcode-reader-swift/. I tried to skin the app down and minimize the code and cleaned it up.
 
 Have fun!
