@@ -171,11 +171,6 @@ extension QRScannerController: AVCaptureMetadataOutputObjectsDelegate {
         // get the string from the metadataObj
         // store the parsed qrCodeString in Userdefaults.standard with the key Constants.Link
         // show the memoryController (method already provided, just call it)
-        guard let qrCodeString = metadataObj.stringValue else { return }
-        
-        UserDefaults.standard.set(qrCodeString, forKey: Constants.LINK)
-        messageLabel.text = qrCodeString
-        showMemoryController()
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
